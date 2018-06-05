@@ -1,8 +1,10 @@
 package com.fundynamic.workshop.dip.services;
 
 import com.fundynamic.workshop.dip.models.CheckoutRequest;
+import com.fundynamic.workshop.dip.models.CheckoutResult;
 import com.fundynamic.workshop.dip.models.PaymentResult;
 import com.fundynamic.workshop.dip.models.PaymentResultCode;
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -25,8 +27,25 @@ public class CheckoutServiceImplTest {
 		// Act
 		checkoutService.doCheckout(new CheckoutRequest());
 
-		// Assert / Verify
+		// Verify
 		verify(mailService).sendCheckoutSuccess();
+	}
+
+	@Test
+	public void easyTestOuptut() {
+		// Arrange
+		MailService mailService = Mockito.mock(MailService.class);
+		PaymentProviderService paymentProviderService = Mockito.mock(PaymentProviderService.class);
+
+		CheckoutServiceImpl checkoutService = new CheckoutServiceImpl(mailService, paymentProviderService);
+
+		when(paymentProviderService.doPayment(any())).thenReturn(new PaymentResult(PaymentResultCode.SUCCESS));
+
+		// Act
+		CheckoutResult checkoutResult = checkoutService.doCheckout(new CheckoutRequest());
+
+		// Assert
+		Assert.assertTrue(checkoutResult.isSuccess());
 	}
 
 	@Test
@@ -43,4 +62,5 @@ public class CheckoutServiceImplTest {
 		// Assert / Verify
 		// HOW!?
 	}
+
 }
