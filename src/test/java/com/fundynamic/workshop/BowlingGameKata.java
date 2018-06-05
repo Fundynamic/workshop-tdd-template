@@ -25,4 +25,12 @@ public class BowlingGameKata {
 		}
 		Assert.assertEquals(0, game.score());
 	}
+
+	@Test
+	public void allOnes() {
+		for (int roll = 0; roll < 20; roll++) {
+			game.roll(1);
+		}
+		Assert.assertEquals(20, game.score());
+	}
 }
