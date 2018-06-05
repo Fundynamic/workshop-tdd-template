@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class BowlingGameKata {
 
 	private Game game;
@@ -20,17 +22,19 @@ public class BowlingGameKata {
 
 	@Test
 	public void gutterGame() {
-		for (int roll = 0; roll < 20; roll++) {
-			game.roll(0);
-		}
-		Assert.assertEquals(0, game.score());
+		rollMany(20, 0);
+		assertEquals(0, game.score());
 	}
 
 	@Test
 	public void allOnes() {
-		for (int roll = 0; roll < 20; roll++) {
-			game.roll(1);
+		rollMany(20, 1);
+		assertEquals(20, game.score());
+	}
+
+	private void rollMany(int rolls, int pins) {
+		for (int roll = 0; roll < rolls; roll++) {
+			game.roll(pins);
 		}
-		Assert.assertEquals(20, game.score());
 	}
 }
