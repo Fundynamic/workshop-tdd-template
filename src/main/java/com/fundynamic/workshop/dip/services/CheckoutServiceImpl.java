@@ -8,13 +8,13 @@ public class CheckoutServiceImpl implements CheckoutService {
 
 	private final PaymentProviderService paymentProviderService;
 
-	// Hard to test code
+	// Hard
 	public CheckoutServiceImpl() {
 		this.mailService = MailService.getInstance();
 		this.paymentProviderService = PaymentProviderService.getInstance();
 	}
 
-	// Easy to test code, add seams
+	// Easy
 	public CheckoutServiceImpl(MailService mailService, PaymentProviderService paymentProviderService) {
 		this.mailService = mailService;
 		this.paymentProviderService = paymentProviderService;
@@ -22,7 +22,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
 	@Override
 	public CheckoutResult doCheckout(CheckoutRequest checkoutRequest) {
-		PaymentRequest paymentRequest = new PaymentRequest(); // harder to test code...
+		PaymentRequest paymentRequest = new PaymentRequest(); // harder to test code... , replace with Factory...
 
 		PaymentResult result = paymentProviderService.doPayment(paymentRequest);
 
