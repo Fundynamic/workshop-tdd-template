@@ -1,4 +1,4 @@
-# Template for tdd workshop
+# Template for TDD workshop 
 
 If you want to quickly get a java project setup to use for a TDD workshop (or any kind of unit test driven workshop). 
 
