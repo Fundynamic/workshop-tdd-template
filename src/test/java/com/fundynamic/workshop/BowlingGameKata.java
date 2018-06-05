@@ -1,5 +1,6 @@
 package com.fundynamic.workshop;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,4 +18,11 @@ public class BowlingGameKata {
 		game.roll(1);
 	}
 
+	@Test
+	public void gutterGame() {
+		for (int roll = 0; roll < 20; roll++) {
+			game.roll(0);
+		}
+		Assert.assertEquals(0, game.score());
+	}
 }
