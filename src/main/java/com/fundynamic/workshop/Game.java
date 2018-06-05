@@ -13,7 +13,6 @@ public class Game {
 	public int score() {
 		int score = 0;
 		for (int roll = 0; roll < 21; roll++) {
-			if (rolls[roll] + rolls[roll + 1] == 10) // not on frame
 			score += rolls[roll];
 		}
 		return score;
