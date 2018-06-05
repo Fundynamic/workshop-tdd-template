@@ -8,4 +8,10 @@ public class BowlingGameKata {
 	public void canCreateGame() {
 		new Game();
 	}
+
+	@Test
+	public void canRoll() {
+		Game game = new Game();
+		game.roll(1);
+	}
 }
