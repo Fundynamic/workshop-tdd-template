@@ -2,6 +2,7 @@ package com.fundynamic.workshop;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -32,6 +33,7 @@ public class BowlingGameKata {
 		assertEquals(20, game.score());
 	}
 
+	@Ignore
 	@Test
 	public void oneSpare() {
 		game.roll(5);
