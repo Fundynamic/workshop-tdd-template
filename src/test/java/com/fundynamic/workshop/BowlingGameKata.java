@@ -37,6 +37,7 @@ public class BowlingGameKata {
 	public void oneSpare() {
 		rollSpare();
 		game.roll(3);
+		rollMany(17, 0);
 
 		assertEquals(16, game.score());
 	}
